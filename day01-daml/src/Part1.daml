@@ -1,0 +1,33 @@
+daml 1.2
+module Part1 where
+
+import DA.Action
+import Input
+
+template Spacecraft with
+    santa: Party
+    elf: Party
+    modules: [Int]
+    fuelRequirements: Int
+  where
+    signatory santa
+    observer elf
+
+    choice AddModule: ContractId Spacecraft with
+        weight: Int
+      controller elf
+      do
+        create this with
+          modules = weight::modules
+          fuelRequirements = fuelRequirements + (weight / 3 - 2)
+
+solve = scenario do
+  santa <- getParty "Santa"
+  elf <- getParty "Elf"
+  emptySpacecraftId <- submit santa do
+    create Spacecraft with santa; elf; modules = []; fuelRequirements = 0
+  foldlA
+    (\spacecraftId weight -> submit elf do exercise spacecraftId AddModule with weight)
+    emptySpacecraftId
+    input
+  return ()

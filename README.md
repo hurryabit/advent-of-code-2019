@@ -21,7 +21,7 @@ list of which ones I have already used/I might use later:
 - [ ] Coq
 - [ ] Curry
 - [ ] D
-- [ ] DAML
+- [X] [DAML](https://daml.com) - Day 1
 - [ ] Dart
 - [ ] Dylan
 - [ ] Elixir

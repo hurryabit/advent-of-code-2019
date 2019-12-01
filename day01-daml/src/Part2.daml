@@ -1,0 +1,64 @@
+daml 1.2
+module Part2 where
+
+import DA.Action
+import Input
+
+template Spacecraft with
+    santa: Party
+    elf: Party
+    modules: [Int]
+    fuelRequirements: Int
+    unaccountedWeight: Int
+  where
+    signatory santa
+    observer elf
+
+    choice AddModule: ContractId Spacecraft with
+        weight: Int
+      controller elf
+      do
+        assertMsg
+          "Cannot add another module while there is still unaccounted weight"
+          (unaccountedWeight <= 0)
+        let moduleFuelRequirements = weight / 3 - 2
+        create this with
+          modules = weight::modules
+          fuelRequirements = fuelRequirements + moduleFuelRequirements
+          unaccountedWeight = moduleFuelRequirements
+
+    choice AccountForUnaccountedWeight: ContractId Spacecraft
+      controller elf
+      do
+        let fuelForUnaccountedWeight = max 0 (unaccountedWeight / 3 - 2)
+        create this with
+          fuelRequirements = fuelRequirements + fuelForUnaccountedWeight
+          unaccountedWeight = fuelForUnaccountedWeight
+
+solve = scenario do
+  santa <- getParty "Santa"
+  elf <- getParty "Elf"
+  emptySpacecraftId <- submit santa do
+    create Spacecraft with santa; elf; modules = []; fuelRequirements = 0; unaccountedWeight = 0
+  foldlA
+    (\spacecraftId weight -> do
+      unaccountedSpacecraftId <- submit elf do exercise spacecraftId AddModule with weight
+      whileA
+        (\spacecraftId -> do
+          spacecraft <- submit elf do fetch spacecraftId
+          return (spacecraft.unaccountedWeight > 0))
+        (\spacecraftId -> submit elf do exercise spacecraftId AccountForUnaccountedWeight)
+        unaccountedSpacecraftId
+    )
+    emptySpacecraftId
+    input
+  return ()
+
+whileA: Action m => (a -> m Bool) -> (a -> m a) -> a -> m a
+whileA p f x = do
+  b <- p x
+  if b then do
+    y <- f x
+    whileA p f y
+  else
+    return x
