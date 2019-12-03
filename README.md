@@ -11,7 +11,7 @@ list of which ones I have already used/I might use later:
 - [ ] Ada
 - [ ] Agda
 - [ ] Basic
-- [ ] C
+- [X] [C](https://en.wikipedia.org/wiki/C_(programming_language)) - Day 2
 - [ ] C#
 - [ ] C++
 - [ ] COBOL
