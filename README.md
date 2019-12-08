@@ -55,5 +55,5 @@ list of which ones I have already used/I might use later:
 - [ ] Scheme
 - [ ] Simula
 - [ ] Smalltalk
-- [ ] Swift
+- [X] [Swift](https://swift.org) - Day 3
 - [ ] TypeScript
