@@ -47,7 +47,7 @@ list of which ones I have already used/I might use later:
 - [ ] Prolog
 - [ ] PureScript
 - [ ] Python
-- [ ] Racket
+- [X] [Racket](https://racket-lang.org) - Day 6
 - [ ] Ruby
 - [ ] Rust
 - [ ] SML
