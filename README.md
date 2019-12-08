@@ -20,7 +20,7 @@ list of which ones I have already used/I might use later:
 - [ ] CoffeeScript
 - [ ] Coq
 - [ ] Curry
-- [ ] D
+- [X] [D](https://dlang.org) - Day 5
 - [X] [DAML](https://daml.com) - Day 1
 - [ ] Dart
 - [ ] Dylan
