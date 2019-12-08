@@ -42,7 +42,7 @@ list of which ones I have already used/I might use later:
 - [ ] Lua
 - [ ] Modula
 - [ ] OCaml
-- [ ] Pascal
+- [X] [Pascal](https://www.freepascal.org) - Day 4
 - [ ] Perl
 - [ ] Prolog
 - [ ] PureScript
