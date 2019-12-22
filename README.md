@@ -26,7 +26,7 @@ list of which ones I have already used/I might use later:
 - [ ] Dylan
 - [ ] Elixir
 - [ ] Elm
-- [ ] Erlang
+- [X] [Erlang](https://www.erlang.org) - Day 7
 - [ ] F#
 - [ ] F*
 - [ ] Go
