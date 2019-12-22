@@ -36,7 +36,7 @@ list of which ones I have already used/I might use later:
 - [ ] Java
 - [ ] JavaScript
 - [ ] Julia
-- [ ] Kotlin
+- [X] [Kotlin](https://kotlinlang.org) - Day 9
 - [ ] Lisp
 - [ ] Lua
 - [ ] Modula
