@@ -10,7 +10,6 @@ list of which ones I have already used/I might use later:
 - [ ] ATS
 - [ ] Ada
 - [ ] Agda
-- [ ] Basic
 - [X] [C](https://en.wikipedia.org/wiki/C_(programming_language)) - Day 2
 - [ ] C#
 - [ ] C++
@@ -47,6 +46,7 @@ list of which ones I have already used/I might use later:
 - [ ] Prolog
 - [ ] PureScript
 - [ ] Python
+- [X] [QuickBASIC](https://en.wikipedia.org/wiki/QuickBASIC) - Day 8
 - [X] [Racket](https://racket-lang.org) - Day 6
 - [ ] Ruby
 - [ ] Rust
